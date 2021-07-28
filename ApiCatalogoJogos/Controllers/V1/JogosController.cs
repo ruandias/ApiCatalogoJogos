@@ -17,6 +17,11 @@ namespace ApiCatalogoJogos.Controllers.V1
     public class JogosController : ControllerBase
     {
         private readonly IJogoService _jogoservice;
+        public JogosController(IJogoService jogoService)
+        {
+            _jogoservice = jogoService;
+        }
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<JogoViewModel>>> Obter([FromQuery, Range(1, int.MaxValue)] int pagina = 1, [FromQuery, Range(1, 50)] int quantidade = 5)
         {
