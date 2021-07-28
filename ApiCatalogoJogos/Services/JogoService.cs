@@ -38,7 +38,7 @@ namespace ApiCatalogoJogos.Services
             var entidadeJogo = await _jogoRepository.Obter(id);
 
             if (entidadeJogo == null)
-                throw new JogoCadastradoException();
+                throw new JogoJaCadastradoException();
 
             entidadeJogo.Preco = preco;
 
